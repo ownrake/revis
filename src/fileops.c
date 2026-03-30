@@ -7,7 +7,7 @@
 
 int create_dir(const char *path) {
 	/*
-		TODO: функция создания файла
+		TODO: функция создания папки
 	*/
 }
 
