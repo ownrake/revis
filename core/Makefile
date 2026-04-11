@@ -1,16 +1,17 @@
 CC = gcc
+
 CFLAGS = -Wall -Iinclude
-LDFLAGS = -static
-LDLIBS = -lssl -lcrypto    
 
 TARGET = build/revis
+
 SRCS = $(wildcard src/*.c)
+
 OBJS = $(patsubst src/%.c, build/%.o, $(SRCS))
 
-all: prepare $(TARGET)
+all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+	$(CC) -o $@ $^
 
 build/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
