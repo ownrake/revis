@@ -1,1 +1,0 @@
-// revis/core/src/hash.c

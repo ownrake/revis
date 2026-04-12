@@ -14,6 +14,25 @@ int create_file(const char *file_name) {
 	return 0;
 }
 
+char *get_file_content(const char *path) {
+	FILE *file = fopen(path, "r");
+    if (file == NULL) return NULL;
+
+	fseek(file, 0, SEEK_END);
+    size_t len = ftell(file);
+    fseek(file, 0, SEEK_SET);
+
+	char *original = malloc(len + 1);
+    if (original) {
+        fread(original, 1, len, file);
+        original[len] = '\0';
+    }
+
+    fclose(file);
+
+	return original;
+}
+
 int create_dir(const char *path_name) {
 	if (mkdir(path_name, 0777) == -1) {
 		return 1;

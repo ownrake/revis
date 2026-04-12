@@ -1,1 +1,0 @@
-// revis/core/include/hash.h
